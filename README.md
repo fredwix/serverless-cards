@@ -30,8 +30,7 @@ A single endpoint that returns either a **single** or **list** of customer cards
 
 ### Usage
 
-<img width="446" alt="Screenshot 2025-05-08 at 10 47 50" src="https://github.com/user-attachments/assets/f7b6d117-203c-4024-be3a-b74e22518b21" />
-
+<img width="443" alt="Screenshot 2025-05-08 at 11 24 52" src="https://github.com/user-attachments/assets/10b81846-8905-4b14-9fc0-9bfccb59e1af" />
 
 ---
 
