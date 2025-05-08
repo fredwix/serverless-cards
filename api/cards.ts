@@ -30,10 +30,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Invalid cardKeys. Provide an array of strings.' });
   }
 
-  // Map over provided keys, generate cards, and filter out invalid/missing ones
-  const listOfCards = cardKeys
-    .map((key) => Components[key as keyof typeof Components]?.())
-    .filter(R.isTruthy); // removes undefined/null
+  // Map over provided keys and build customer card response
+  const listOfCards = R.pipe(
+    cardKeys,
+    R.flatMap((key) => {
+      const executeFn = Components[key as keyof typeof Components];
+      return executeFn ? [executeFn()] : [];
+    })
+  );
 
   return res.json({ cards: listOfCards });
 }
