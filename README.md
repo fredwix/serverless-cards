@@ -9,8 +9,15 @@ A single endpoint that returns either a **single** or **list** of customer cards
 - **List all cards**
   
   ```
-  GET https://plain-cards.vercel.app/api/cards
+  POST https://plain-cards.vercel.app/api/cards
   ```
+  **Payload**
+  ```
+  {
+    "cardKeys": ["usage"]
+  }
+  ```
+
   → Returns a list of pre-built static customer cards specified in cardKeys.
 
 ---
