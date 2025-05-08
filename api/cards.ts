@@ -5,13 +5,10 @@ import { Components } from "../components";
 /**
  * API handler to serve card JSON objects.
  * 
- * This endpoint supports two modes:
+ * This endpoint supports:
  * 
- * 1. GET /api/cards
- *    → Returns a list of all available card objects by executing 
- * 
- * 2. GET /api/cards?type={cardType}
- *    → Returns a single card object matching the provided type.
+ * 1. POST /api/cards
+ *    → Returns a list of all cards specified in the cardKeys array.
  * 
  * The handler dynamically builds card on each request,
  * disables caching to always deliver fresh content,
@@ -21,26 +18,22 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   // Disable Vercel's edge cache to ensure fresh data on every request
   res.setHeader("Cache-Control", "no-cache");
 
-  const { type } = req.query;
+  const { cardKeys } = req.body;
 
-  // If no 'type' parameter is provided, return all available cards.
-  if (R.isNullish(type)) {
-    // We execute each card function in Components to build and return the full card JSON objects.
-    const listOfCards = Object.values(Components).map((execute) => execute());
-    return res.json({ cards: listOfCards });
+  // Only allow POST request for this endpoint
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 
-  // If a 'type' parameter is provided, attempt to retrieve and execute the matching card generator.
-  // Use null fallback to avoid passing undefined into the response.
-  const card = Components[type as keyof typeof Components]?.() ?? null;
-
-  // If no matching card is found, return a 404 error with a clear message.
-  if (R.isNullish(card)) {
-    return res.status(404).json({ error: `Card type '${type}' not found` });
+  // Validate that cardKeys is an array of strings
+  if (!R.isArray(cardKeys) || !cardKeys.every((k) => typeof k === 'string')) {
+    return res.status(400).json({ error: 'Invalid cardKeys. Provide an array of strings.' });
   }
 
-  // Return the selected card in the expected response format.
-  return res.json({
-    cards: [card],
-  });
+  // Map over provided keys, generate cards, and filter out invalid/missing ones
+  const listOfCards = cardKeys
+    .map((key) => Components[key as keyof typeof Components]?.())
+    .filter(R.isTruthy); // removes undefined/null
+
+  return res.json({ cards: listOfCards });
 }

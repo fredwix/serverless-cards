@@ -11,14 +11,7 @@ A single endpoint that returns either a **single** or **list** of customer cards
   ```
   GET https://plain-cards.vercel.app/api/cards
   ```
-  → Returns a list of pre-built static customer cards.
-
-- **Get a single card by type**
-  
-  ```
-  GET https://plain-cards.vercel.app/api/cards?type=usage
-  ```
-  → Returns the specified customer card.
+  → Returns a list of pre-built static customer cards specified in cardKeys.
 
 ---
 
