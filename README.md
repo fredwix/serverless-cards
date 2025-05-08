@@ -9,14 +9,14 @@ A single endpoint that returns either a **single** or **list** of customer cards
 - **List all cards**
   
   ```
-  GET /api/cards
+  GET https://plain-cards.vercel.app/api/cards
   ```
   → Returns a list of pre-built static customer cards.
 
 - **Get a single card by type**
   
   ```
-  GET /api/cards?type=usage
+  GET https://plain-cards.vercel.app/api/cards?type=usage
   ```
   → Returns the specified customer card.
 
