@@ -1,6 +1,6 @@
 # 💳 Example Customer Card API
 
-A single endpoint that returns either a **single** or **list** of customer cards for use with Plain.
+The API should return a list of cards that match the requested keys, with each card containing the components you want to display.
 
 ---
 
