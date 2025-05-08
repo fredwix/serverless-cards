@@ -57,7 +57,7 @@ export const Usage = (): Card => {
                   {
                     componentText: {
                       textSize: "M",
-                      text: "Remaining",
+                      text: "Events Remaining",
                     },
                   },
                 ],

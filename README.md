@@ -22,7 +22,7 @@ A single endpoint that returns either a **single** or **list** of customer cards
 
 ---
 
-## 🚀 Customer Cards
+## 🖼️ Customer Cards
 
 ### Basic
 
