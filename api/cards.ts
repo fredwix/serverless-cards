@@ -3,16 +3,15 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Components } from "../components";
 
 /**
- * API handler to serve card JSON objects.
+ * API handler for /api/cards 
  * 
  * This endpoint supports:
  * 
- * 1. POST /api/cards
+ * POST /api/cards
  *    → Returns a list of all cards specified in the cardKeys array.
  * 
- * The handler dynamically builds card on each request,
- * disables caching to always deliver fresh content,
- * and ensures the response shape is consistent for both single and multiple cards.
+ * The handler dynamically builds cards response on each request,
+ * that is used by Plain to display Customer Customer Cards.
  */
 export default function handler(req: VercelRequest, res: VercelResponse) {
   // Disable Vercel's edge cache to ensure fresh data on every request

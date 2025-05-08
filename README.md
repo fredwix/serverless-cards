@@ -55,12 +55,11 @@ npm run start
 ## 🔧 Improvement Considerations
 
 - 🔐 Add **endpoint auth guard** (e.g., authorization token in request headers from Plain)
-- 🔎 Body schema validation 
+- 🔎 Better Request/Response schema validation using zod safeParse
 - 💾 Store **customer card templates in a database**
 - ⚡ Implement **caching strategy** for faster API responses
 - ✅ Add **unit tests** for handlers and components
-- 🔄 Support **multi-card type queries** (currently only supports one type)
-- 🛡️ Introduce **API versioning** for future-proofing
+- 🛡️ Introduce **API versioning** for major changes to the custom cards
 
 ---
 
