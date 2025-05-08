@@ -1,31 +1,54 @@
-# Node.js Hello World
+# 💳 Example Customer Card API
 
-Simple Node.js + Vercel example that returns a "Hello World" response.
+A single endpoint that returns either a **single** or **list** of customer cards for use with Plain.
 
-## How to Use
+---
 
-You can choose from one of the following two methods to use this repository:
+## 🚀 Endpoints
 
-### One-Click Deploy
+- **List all cards**
+  
+  ```
+  GET /api/cards
+  ```
+  → Returns a list of pre-built static customer cards.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+- **Get a single card by type**
+  
+  ```
+  GET /api/cards?type=usage
+  ```
+  → Returns the specified customer card.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/examples/tree/main/solutions/node-hello-world&project-name=node-hello-world&repository-name=node-hello-world)
+---
 
-### Clone and Deploy
-
-```bash
-git clone https://github.com/vercel/examples/tree/main/solutions/node-hello-world
-```
-
-Install the Vercel CLI:
-
-```bash
-npm i -g vercel
-```
-
-Then run the app at the root of the repository:
+## 💻 How to Run Locally
 
 ```bash
-vercel dev
+git clone https://github.com/fredwix/serverless-cards.git
+npm install
+npm run start
 ```
+
+---
+
+## 📚 Useful Resources
+
+- [⚡ Node.js Serverless Function Template](https://vercel.com/templates/other/nodejs-serverless-function-express)
+- [🛠️ Plain UI Components Playground](https://app.plain.com/developer/ui-components-playground)
+- [📖 Customer Card API Docs](https://www.plain.com/docs/api-reference/customer-cards)
+
+---
+
+## 🔧 Improvement Considerations
+
+- 🔐 Add **endpoint auth guard** (e.g., authorization token in request headers from Plain)
+- 💾 Store **customer card templates in a database**
+- ⚡ Implement **caching strategy** for faster API responses
+- ✅ Add **unit tests** for handlers and components
+- 🔄 Support **multi-card type queries** (currently only supports one type)
+- 🛡️ Introduce **API versioning** for future-proofing
+
+---
+
+
