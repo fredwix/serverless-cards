@@ -6,7 +6,7 @@ The API should return a list of cards that match the requested keys, with each c
 
 ## 🚀 Endpoints
 
-- **List all cards**
+- **List cards**
   
   ```
   POST https://plain-cards.vercel.app/api/cards
@@ -55,6 +55,7 @@ npm run start
 ## 🔧 Improvement Considerations
 
 - 🔐 Add **endpoint auth guard** (e.g., authorization token in request headers from Plain)
+- 🔎 Body schema validation 
 - 💾 Store **customer card templates in a database**
 - ⚡ Implement **caching strategy** for faster API responses
 - ✅ Add **unit tests** for handlers and components
